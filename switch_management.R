@@ -4,8 +4,6 @@
 ## The scenarios include base case run/ tunning/ projection
 #############################################################
 
-path="D:/V-Notching Study/90historical"
-
 ModelFunctionSwitch=4
 # 1: Historical simulation
 # 2: Tune model
