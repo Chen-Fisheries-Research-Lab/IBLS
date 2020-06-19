@@ -4,8 +4,6 @@
 ## The scenarios include base case run/ tunning/ projection
 #############################################################
 
-path="D:/V-Notching Study/90historical"
-
 ModelFunctionSwitch=4
 # 1: Historical simulation
 # 2: Tune model
@@ -29,3 +27,6 @@ PlotSwitch=3
 load("C:/Users/Mackenzie/Desktop/0% V-Notch Dist. Scenarios/mean_sd3.RData")
 load("C:/Users/Mackenzie/Desktop/0% V-Notch Dist. Scenarios/mean_sd4.RData")
 #source(paste(path,"RunCPP.r",sep=""))
+
+
+## experiment push 
