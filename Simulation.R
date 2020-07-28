@@ -1,5 +1,4 @@
 #####
-setwd(path)
 library(truncnorm)
 #width and height for plots
 PlotWidth=25
