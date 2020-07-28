@@ -24,6 +24,4 @@ PlotSwitch=3
 # 2: Plot both options 0 and 1
 # 3: No summary plots (plots of reference points and projections are still produced)
 
-load("C:/Users/Mackenzie/Desktop/0% V-Notch Dist. Scenarios/mean_sd3.RData")
-load("C:/Users/Mackenzie/Desktop/0% V-Notch Dist. Scenarios/mean_sd4.RData")
-#source(paste(path,"RunCPP.r",sep=""))
+source('Simulation.R')

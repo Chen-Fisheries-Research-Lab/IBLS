@@ -1,5 +1,4 @@
 #####
-setwd(path)
 library(truncnorm)
 #width and height for plots
 PlotWidth=25
@@ -608,6 +607,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=0
               }
               if (ThisTimestepWYear==3 & mpa==2){
+                br
                 if (SSBthistimestep<=10000000) RecruitAll <- 0.66*(rnorm(1, mean=62050000, sd=25840418)/10000)
                 if (SSBthistimestep>10000000 & SSBthistimestep<=12500000) RecruitAll <- 0.66*(rnorm(1,mean=69320000, sd=32570877)/10000)
                 if (SSBthistimestep>12500000 & SSBthistimestep<=16000000) RecruitAll <- 0.66*(rnorm(1,mean=107180000, sd=21179282)/10000)
