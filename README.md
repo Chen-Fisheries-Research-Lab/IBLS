@@ -4,6 +4,6 @@ An individual-based lobster simulator (IBLS) that allows users to simulate the G
 ![](Figure%201.png)
 
 # Input
-The IBLS requires abundance, recruitment, and other types of data (Table 1). 
+The IBLS requires abundance, recruitment, and other types of data (Table 1). Most of the probabilities and other input data are from the stock assessment data (ASMFC 2015), but fishing effort data are from the Maine Department of Marine Resources (DMR) harvester data, and V-notching information is from personal communication with managers (Table 1).
 
 ![](Table1.png)
