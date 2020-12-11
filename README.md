@@ -4,6 +4,10 @@ An individual-based lobster simulator (IBLS) that allows users to simulate the G
 ![](Figure%201.png)
 
 # Input
-The IBLS requires abundance, recruitment, and other types of data (Table 1). Most of the probabilities and other input data are from the stock assessment data (ASMFC 2015), but fishing effort data are from the Maine Department of Marine Resources (DMR) harvester data, and V-notching information is from personal communication with managers (Table 1).
+The IBLS requires abundance, recruitment, and other types of data (Table 1). Most of the probabilities and other input data are from the stock assessment data (ASMFC 2015), but fishing effort data are from the Maine Department of Marine Resources (DMR) harvester data, and V-notching information is from personal communication with managers (Table 1).These are the best available data representing the GOM lobster fishery dynamics.
 
 ![](Table1.png)
+
+# State variables and scales
+Individual lobsters are characterized by the state variables size (carapace length (CL) in millimetres), sex, maturity status, egg status, survival status (if the lobster is alive or dead because of either fishing or natural mortality), and V-notch presence. The current historical temporal range is from the years 1982 to 2013 following the 2015 benchmark American lobster stock assessment (ASMFC 2015). However, this will need to be updated to 1982 to 2018 following the most recent American lobster stock assessment (ASMFC 2020). The spatial extent is the GOM lobster stock area (Fig. 2). 
+![](Figure%202.png)
