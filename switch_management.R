@@ -4,7 +4,7 @@
 ## The scenarios include base case run/ tunning/ projection
 #############################################################
 
-ModelFunctionSwitch=4
+ModelFunctionSwitch=1
 # 1: Historical simulation
 # 2: Tune model
 # 3.1: Calculate biological reference points using ad hoc approach
@@ -17,7 +17,7 @@ HistoricalSimulationYesNo=0
 # 0: yes, rerun the historical simulation
 # 1: no, do not rerun the historical simulation. Load the previous run
 
-PlotSwitch=3
+PlotSwitch=1
 # Set to 3 when running functions other than Historical simulation 
 # 0: Plot the summary results for each time step and size class during the simulation
 # 1: Plot the summary results by time step and year at the end of the simulation only
