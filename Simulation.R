@@ -422,51 +422,6 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
             }
             if(ProjectionRecruitmentSwitch==1)
             {
-              if (yr==5) TimestepSummary1data=aggregate(Summary1$Quantity,by=as.list(Summary1[,c("Name","Area","MPA","Sex","Year","Timestep","ThisTimestep")]),sum)
-              prediction_all <- subset(TimestepSummary1data[which(TimestepSummary1data$MPA=="Out MPA" & TimestepSummary1data$Sex=="Female"),], Name=="Spawning Stock Biomass (weight)")
-              prediction_time=aggregate(prediction_all$x,by=list(prediction_all$Year,prediction_all$Timestep),sum)
-              colnames(prediction_time)[1] <- "Year"
-              colnames(prediction_time)[2] <- "timestep"
-              colnames(prediction_time)[3] <- "ssb"
-              ssb <-prediction_time
-              ssb <- ssb[with(ssb, order(Year, timestep)),]
-              
-              #tempAll=subset(InitialAbunRecruitSexRatio,Timestep==ThisTimestepWYear & Area==area & MPA==mpa & Year!=SimulationYear[1] & Year!=tail(SimulationYear,1))
-              #tempFemale=tempAll$Recruitment*tempAll$RecruitmentSexRatio
-              #tempMale=tempAll$Recruitment-tempFemale
-              SSBthistimestep <- ssb$ssb[which(ssb$Year==(ssb$Year[1]+yr-1) & ssb$timestep==ThisTimestepWYear)]
-              
-              RecruitFemale=-1
-              RecruitMale=-1
-              while(RecruitFemale<0 | RecruitMale<0)
-              {
-                if (ThisTimestepWYear==1 | ThisTimestepWYear==2 | mpa==1) {
-                  RecruitAll=0
-                  RecruitFemale=0
-                  RecruitMale=0
-                }
-                if (ThisTimestepWYear==3 & mpa==2){
-                  if (SSBthistimestep<=17569988) RecruitAll <- rnorm(500,66561429,16357629)
-                  if (SSBthistimestep>17569988) RecruitAll <- rnorm(500,144534000,36418918)
-                  RecruitFemale=RecruitAll*RecruitmentSexRatio/10000
-                  RecruitMale=RecruitAll-RecruitFemale/10000
-                }
-                if (ThisTimestepWYear==4 & mpa==2){
-                  if (SSBthistimestep<=mean_sd4$breaks[1]) RecruitAll <- rnorm(1, mean=mean_sd4[1,1], sd=mean_sd4[1,2])
-                  if (SSBthistimestep<=mean_sd4$breaks[2] & SSBthistimestep>mean_sd4$breaks[1]) RecruitAll <- rnorm(1, mean=mean_sd4[2,1], sd=mean_sd4[2,2])
-                  if (SSBthistimestep<=mean_sd4$breaks[3] & SSBthistimestep>mean_sd4$breaks[2]) RecruitAll <- rnorm(1, mean=mean_sd4[3,1], sd=mean_sd3[3,2])
-                  if (SSBthistimestep<=mean_sd4$breaks[4] & SSBthistimestep>mean_sd4$breaks[3]) RecruitAll <- rnorm(1, mean=mean_sd4[4,1], sd=mean_sd4[4,2])
-                  if (SSBthistimestep<=mean_sd4$breaks[5] & SSBthistimestep>mean_sd4$breaks[4]) RecruitAll <- rnorm(1, mean=mean_sd4[5,1], sd=mean_sd4[5,2])
-                  if (SSBthistimestep>mean_sd4$breaks[5]) RecruitAll <- rnorm(1, mean=mean_sd4[6,1], sd=mean_sd4[6,2])
-                  #if (SSBthistimestep<=mean_sd4$breaks[6] & SSBthistimestep>mean_sd4$breaks[5]) RecruitAll <- rnorm(1, mean=mean_sd4[6,1], sd=mean_sd4[6,2])
-                  RecruitmentSexRatio=0.5
-                  RecruitFemale=RecruitAll*RecruitmentSexRatio/10000
-                  RecruitMale=RecruitAll-RecruitFemale/10000
-                }
-              }
-            }
-            if(ProjectionRecruitmentSwitch==2)
-            {
               if(yr>6){
                 TimestepSummary1data=aggregate(Summary1$Quantity,by=as.list(Summary1[,c("Name","Area","MPA","Year","Timestep","ThisTimestep")]),sum)
                 prediction_all <- subset(TimestepSummary1data[which(TimestepSummary1data$MPA=="Out MPA"),], Name=="Spawning Stock Biomass (weight)")
@@ -494,7 +449,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
               bootnls<-read.csv('bootnls.csv')
               alpha<-bootnls$a
               beta<-bootnls$b
-
+              
               library(FSA)
               r1 <- srFuns("Ricker",msg=FALSE)
               
@@ -516,7 +471,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=RecruitAll-RecruitFemale
               }
             }	
-            if(ProjectionRecruitmentSwitch==3)
+            if(ProjectionRecruitmentSwitch==2)
             {
               temp<-read.csv('temp.csv')
               if(yr>6){
@@ -574,7 +529,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=RecruitAll-RecruitFemale
               }
             }
-            if(ProjectionRecruitmentSwitch==4)
+            if(ProjectionRecruitmentSwitch==3)
             {
               if(yr>6){
                 TimestepSummary1data=aggregate(Summary1$Quantity,by=as.list(Summary1[,c("Name","Area","MPA","Year","Timestep","ThisTimestep")]),sum)
@@ -628,7 +583,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitFemale=RecruitAll*RecruitmentSexRatio
                 RecruitMale=RecruitAll-RecruitFemale
               }
-            }				
+            }	
             SizeCompFemale=subset(SizeComp, Area==area & MPA==mpa & Sex==0)
             SizeCompMale=subset(SizeComp, Area==area & MPA==mpa & Sex==1)	
             
