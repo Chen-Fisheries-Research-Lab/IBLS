@@ -420,7 +420,13 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
               RecruitMale=RecruitAll$Recruitment-RecruitFemale
               
             }
-            if(ProjectionRecruitmentSwitch==1)
+            if(ProjectionRecruitmentSwitch==1) #recruitment from sheet (input)
+            {
+              RecruitAll=subset(RecruitProject,Timestep==ThisTimestepWYear & Area==area & MPA==mpa & Year==yr)
+              RecruitFemale=RecruitAll$Recruitment*RecruitAll$RecruitmentSexRatio
+              RecruitMale=RecruitAll$Recruitment-RecruitFemale
+            }
+            if(ProjectionRecruitmentSwitch==2)
             {
               if(yr>6){
                 TimestepSummary1data=aggregate(Summary1$Quantity,by=as.list(Summary1[,c("Name","Area","MPA","Year","Timestep","ThisTimestep")]),sum)
@@ -471,7 +477,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=RecruitAll-RecruitFemale
               }
             }	
-            if(ProjectionRecruitmentSwitch==2)
+            if(ProjectionRecruitmentSwitch==3)
             {
               temp<-read.csv('temp.csv')
               if(yr>6){
@@ -529,7 +535,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=RecruitAll-RecruitFemale
               }
             }
-            if(ProjectionRecruitmentSwitch==3)
+            if(ProjectionRecruitmentSwitch==4)
             {
               if(yr>6){
                 TimestepSummary1data=aggregate(Summary1$Quantity,by=as.list(Summary1[,c("Name","Area","MPA","Year","Timestep","ThisTimestep")]),sum)
