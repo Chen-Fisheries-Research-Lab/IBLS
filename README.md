@@ -8,6 +8,18 @@ The IBLS requires abundance, recruitment, and other types of data (Table 1). Mos
 
 ![](Table1.png)
 
+Input files include:
+BRPControl.xlsx
+EncounterRate.csv
+LifeHistoryControl.xlsx
+ManagementControl.xlsx
+MoltIncrement.csv
+MoltProb.csv
+ProjectionControlGeneralSetting.xlsx
+ProjectionControlScenario1.xlsx
+Switches.xlsx
+TunningControl.xlsx
+
 # State variables and scales
 Individual lobsters are characterized by the state variables size (carapace length (CL) in millimetres), sex, maturity status, egg status, survival status (if the lobster is alive or dead because of either fishing or natural mortality), and V-notch presence. The current historical temporal range is from the years 1982 to 2013 following the 2015 benchmark American lobster stock assessment (ASMFC 2015). However, this will need to be updated to 1982 to 2018 following the most recent American lobster stock assessment (ASMFC 2020). The spatial extent is the GOM lobster stock area (Fig. 2). The model has four time steps: winter (January–March), spring (April–June), summer (July–September), and fall (October–December).
 
