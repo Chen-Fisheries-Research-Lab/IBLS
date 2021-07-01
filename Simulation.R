@@ -503,7 +503,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 ssb <-prediction_time
                 ssb <- ssb[with(ssb, order(Year, timestep)),]
                 SSBthistimestep<- ssb[ssb$timestep==3,]
-                SSBthistimestep<- SSBthistimestep$ssb[SSBthistimestep$Year==2007+yr]
+                SSBthistimestep<- SSBthistimestep$ssb[SSBthistimestep$Year==tail(SSBthistimestep$Year,1)-6]
                 temp<-temp$temp[temp$Year==yr+2013]
               }
               
@@ -559,7 +559,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 ssb <-prediction_time
                 ssb <- ssb[with(ssb, order(Year, timestep)),]
                 SSBthistimestep<- ssb[ssb$timestep==3,]
-                SSBthistimestep<- SSBthistimestep$ssb[SSBthistimestep$Year==2007+yr]
+                SSBthistimestep<- SSBthistimestep$ssb[SSBthistimestep$Year==tail(SSBthistimestep$Year,1)-6]
               }
               
               if (ThisTimestepWYear==1 | ThisTimestepWYear==2 | mpa==1) {
@@ -568,12 +568,11 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 RecruitMale=0
               }
               if (ThisTimestepWYear==3 & mpa==2){
-                br
                 if (SSBthistimestep<=10000000) RecruitAll <- 0.66*(rnorm(1, mean=62050000, sd=25840418)/10000)
                 if (SSBthistimestep>10000000 & SSBthistimestep<=12500000) RecruitAll <- 0.66*(rnorm(1,mean=69320000, sd=32570877)/10000)
                 if (SSBthistimestep>12500000 & SSBthistimestep<=16000000) RecruitAll <- 0.66*(rnorm(1,mean=107180000, sd=21179282)/10000)
                 if (SSBthistimestep>16000000 & SSBthistimestep<=19000000) RecruitAll <- 0.66*(rnorm(1,mean=161666667, sd=55148285)/10000)
-                if (SSBthistimestep>19000000) RecruitAll <- 0.66*(rnorm(1,mean=274666667, sd=10969655)/10000)
+                if (SSBthistimestep>19000000) RecruitAll <- 0.66*(rnorm(1,mean=294666667, sd=10969655)/10000)
                 #if (SSBthistimestep<=mean_sd3$breaks[6] & SSBthistimestep>mean_sd3$breaks[5]) RecruitAll <- rnorm(1, mean=mean_sd3[6,1], sd=mean_sd3[6,2])
                 RecruitmentSexRatio=0.5
                 RecruitFemale=RecruitAll*RecruitmentSexRatio
@@ -584,7 +583,7 @@ Simulation=function(SimulationYeartemp,SimulationTimestepStarttemp,SimulationTim
                 if (SSBthistimestep>10000000 & SSBthistimestep<=12500000) RecruitAll <- 0.33*(rnorm(1,mean=69320000, sd=32570877)/10000)
                 if (SSBthistimestep>12500000 & SSBthistimestep<=16000000) RecruitAll <- 0.33*(rnorm(1,mean=107180000, sd=21179282)/10000)
                 if (SSBthistimestep>16000000 & SSBthistimestep<=19000000) RecruitAll <- 0.33*(rnorm(1,mean=161666667, sd=55148285)/10000)
-                if (SSBthistimestep>19000000) RecruitAll <- 0.33*(rnorm(1,mean=274666667, sd=10969655)/10000)
+                if (SSBthistimestep>19000000) RecruitAll <- 0.33*(rnorm(1,mean=294666667, sd=10969655)/10000)
                 RecruitmentSexRatio=0.5
                 RecruitFemale=RecruitAll*RecruitmentSexRatio
                 RecruitMale=RecruitAll-RecruitFemale
